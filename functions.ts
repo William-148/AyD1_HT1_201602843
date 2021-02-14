@@ -55,3 +55,7 @@ function bubbleSort(array : number[]) : void{
 //Ordenando el array
 let collection = [88,1,5,22,14,77,33];
 bubbleSort(collection);
+
+
+//Ordenando el array con quick sort
+quickSort(1, 88, collection);
