@@ -1,3 +1,40 @@
+  
+function getPivot(value : number) : number{
+    return value % 2 == 0 ? value : value - 0.5;
+}
+
+function getPivot2(value : number) : number{
+    return value % 2 == 0 ? value : value + 0.5;
+}
+
+function quickSort(low: number, high: number, array : number[]) : void{
+    let i = low;
+    let j = high;
+    let pivot = array[getPivot2((low + high) / 2)];
+
+    while(i <= j){
+        while(array[i] < pivot){
+            i++;
+        }
+
+        while(array[j] > pivot){
+            j--;
+        }
+        if(i <= j){
+            swap(i, j, array);
+            i++;
+            j--;
+        }
+    }
+
+    if(low < j){
+        quickSort(low, j, array);
+    }
+    if(i < high){
+        quickSort(i, high, array);
+    }
+}
+
 function swap(i : number, j: number, array : number[]) : void{
     const temp = array[i];
     array[i] = array[j];
@@ -13,3 +50,8 @@ function bubbleSort(array : number[]) : void{
         }
     }
 }
+
+
+//Ordenando el array
+let collection = [88,1,5,22,14,77,33];
+bubbleSort(collection);
